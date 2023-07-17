@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/vue/2.7.0/vue.min.js"></script>
+</head>
+<body>
+<div id="app-2">
+  <p>你好{{ message }}</p>
+  <a :href="url" x="nini">baidu</a>
+</div>
+
+<div id="app">
+  <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span><br/>
+  单向数据绑定<input type="text" v-bind:value="name"><br/>
+  双向数据绑定<input type="text" v-model:value="name"><br/>
+  单向数据绑定<input type="text" :value="name"><br/>
+  双向数据绑定<input type="text" v-model="name"><br/>
+</div>
+
+<div id="app-3">
+    <p v-if="seen">现在你看到我了</p>
+    <div v-if ="type=='haha'">
+        HAHA出来了
+    </div>
+    <p v-if ="type == 0">0出现</p>
+
+    <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+  </div>
+
+
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">反转消息</button>
+  </div>
+
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!',
+    value : "",
+    down:{
+      message:"kkkkk"
+    }
+  }
+})
+var app2 = new Vue({
+  el: '#app-2',
+  data: {
+    message: '页面加载于 ' + new Date().toLocaleString(),
+    url:"http://www.baidu.com",
+    x:"gg"
+  }
+})
+
+new Vue({
+  el:'#app-5',
+  data:{
+    message:'nihao'
+  },
+  methods:{
+    reverseMessage:function(){
+      this.message='gggggggggg'
+  }
+}
+})
+
+new Vue({
+  el: '#app-6',
+  data: {
+    message: ''-1
+  }
+})
+
+new Vue({
+  el: '#app-3',
+  data: {
+    seen: true,
+    type: 0,
+    todos: [
+      { text: '学习 JavaScript' },
+      { text: '学习 Vue' },
+      { text: '整个牛项目' }
+    ]
+  }
+})
+</script>
+</body>
+</html>
